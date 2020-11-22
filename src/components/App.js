@@ -3,6 +3,7 @@ import NavBar from './NavBar'
 import Characters from './Characters'
 import CharacterDetail from './CharacterDetail'
 import Footer from './Footer'
+import Store from '../Store'
 
 import {
   BrowserRouter as Router,
@@ -14,6 +15,7 @@ const doSomethingWith = (val) => console.log(val)
 
 function App() {
   return (
+    <Store>
       <Router>
         <NavBar />
         <Switch>
@@ -26,6 +28,7 @@ function App() {
         </Switch>
         <Footer />
       </Router>      
+    </Store>
   );
 }
 
