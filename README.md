@@ -13,3 +13,7 @@ const ApiKeys = {
 
 export default ApiKeys
 ```
+
+2. Run `npm install` to from the project root to install all required npm packages.
+
+3. Run `npm run start` to run the application. Application can be accessible at `localhost:3000` URL.
