@@ -1,0 +1,16 @@
+.search-bar-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  .search-bar {
+    width: 50%;
+  }
+}
+
+.progress-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  height: 90vh;
+}

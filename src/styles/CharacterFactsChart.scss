@@ -1,0 +1,21 @@
+.chart-container-outer {
+  margin-top: 20px;
+  padding: 10px;
+  display: flex;
+  .facts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .fact-item {
+      margin: 5px 0;
+    }
+    .subheader-container {
+      margin-top: 10px;
+    }
+    .total-number {
+      color: teal;
+      font-size: 25px;
+      font-weight: bold;
+    }
+  }
+}

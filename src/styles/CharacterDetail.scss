@@ -1,0 +1,34 @@
+.top-container {
+  width: 70%;
+  margin: 10px auto;
+  .character-detail-container {
+    display: flex;
+    .details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      .name {
+        text-align: center;
+        font-size: 80px;
+      }
+      .description {
+        padding: 20px;
+      }
+      .greeting {
+        text-align: center;
+        font-size: 40px;
+      }
+    }
+  }
+  .back-button {
+    margin: 10px 0;
+  }
+  .comics-details-container {
+    margin: 30px 0;
+    .header {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+  }
+}

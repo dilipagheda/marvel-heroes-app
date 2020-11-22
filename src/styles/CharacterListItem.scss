@@ -1,0 +1,12 @@
+.character-name {
+  color: black;
+  font-family: 'Roboto', sans-serif;
+}
+.card-content-container {
+  padding: 8px !important;
+  text-align: center;
+}
+.card-actions-container {
+  display: flex;
+  flex-direction: row-reverse;
+}

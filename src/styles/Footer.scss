@@ -1,0 +1,33 @@
+.footer-container {
+  padding: 100px;
+  background-color: black;
+  .footer-container-inner {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .line1,
+    .line2,
+    .line3 {
+      text-align: center;
+    }
+    .line1 {
+      font-size: 30px;
+      margin: 20px;
+    }
+    .line2 {
+      font-size: 20px;
+      margin: 5px;
+    }
+    .line3 {
+      display: flex;
+      justify-content: center;
+      font-size: 18px;
+      margin: 5px;
+      a {
+        color: white;
+        margin-left: 5px;
+      }
+    }
+  }
+}
