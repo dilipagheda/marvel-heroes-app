@@ -18,8 +18,8 @@ function CharacterDetail() {
     history.push('/')
   }
   return (
-    <div class="top-container">
-        <Button className="back-button" size="big" color="primary" onClick={onClickHandler}>
+    <div className="top-container">
+        <Button className="back-button" size="medium" color="primary" onClick={onClickHandler}>
           <ArrowBackIosIcon />Go back
         </Button>
       <Paper className="character-detail-container" elevation={3}>
@@ -27,7 +27,7 @@ function CharacterDetail() {
           <img src={`${info.thumbnail.path}.${info.thumbnail.extension}`} alt={`image of ${info.name}`} height="600" />
         </div>
         <div className="details">
-          <div class="greeting">Hey! I am</div>
+          <div className="greeting">Hey! I am</div>
           <h1 className="name">{info.name}</h1>
           <p className="description">{info.description}</p>
         </div>

@@ -8,7 +8,7 @@ function CharactersList(props) {
   const renderCharacters = (characters) => {
     return characters.map(character => {
       return (
-        <Grid item xs={12} sm={6} md={6} lg={4} className="character-card-container">
+        <Grid key={character.id} item xs={12} sm={6} md={6} lg={4} className="character-card-container">
           <CharacterListItem info={character}/>
         </Grid>
       )

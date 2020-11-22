@@ -12,9 +12,9 @@ function ComicsList(props) {
         </div>
       )
     }
-    return comics.map(comic => {
+    return comics.map((comic,index) => {
       return (
-        <ComicListItem info={comic} />
+        <ComicListItem info={comic} key={index} />
       )
     })
   }

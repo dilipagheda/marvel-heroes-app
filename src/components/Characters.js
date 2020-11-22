@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useContext} from 'react'
+import React, {useEffect, useState, useContext, useCallback} from 'react'
 import SearchBar from "material-ui-search-bar"
 import CharactersList from  './CharactersList'
 import Apis from '../Apis'
@@ -12,12 +12,12 @@ function Characters() {
   const [searchDirty, setSearchDirty] = useState(false)
   const [state, dispatch] = useContext(Context);
 
-  const reset = () => {
+  const reset = useCallback(() => {
     dispatch({type:'SET_CHARACTERS', payload:[]})
     dispatch({type:'SET_CURRENT_TOTAL', payload:0})
     dispatch({type:'SET_OVERALL_TOTAL', payload: 0})    
     dispatch({type:'SET_PAGE_NUMBER', payload:0})
-  }
+  },[dispatch])
 
   useEffect(()=>{
     if(state.results.length === 0)
@@ -37,7 +37,7 @@ function Characters() {
         clearTimeout(id)
       }
     }
-  }, [state.searchPhrase, searchDirty])
+  }, [state.searchPhrase, searchDirty, reset])
 
   useEffect(() => {
     if(fireCall)
@@ -52,7 +52,7 @@ function Characters() {
       }
       fetchData()
     }
-  },[fireCall])  
+  },[fireCall, state.pageNumber, state.searchPhrase, dispatch])  
 
   const onClickLoadMoreHandler = (event) => {
     dispatch({type:'SET_PAGE_NUMBER', payload: state.pageNumber + 1})
