@@ -2,6 +2,11 @@
 
 Marvel Heroes App interacts with the Marvel API (https://developer.marvel.com/account) and shows characters and some fun stuff about them. The aim is to build a react app that provides a delightful experience to the end user.
 
+## How to access this application
+This web application is deployed on AWS S3 at the moment. You can access it via
+
+http://marvel-heroes-app.s3-website-ap-southeast-2.amazonaws.com/
+
 ## How to run this project locally
 Please follow below steps.
 
