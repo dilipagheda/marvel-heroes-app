@@ -1,17 +1,16 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import NavBar from './NavBar'
 import Characters from './Characters'
 import CharacterDetail from './CharacterDetail'
 import Footer from './Footer'
 import Store from '../Store'
-
+import NotFound from './NotFound'
+import ServerError from './ServerError'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
-
-const doSomethingWith = (val) => console.log(val)
 
 function App() {
   return (
@@ -25,6 +24,10 @@ function App() {
           <Route path="/detail/:id">
             <CharacterDetail />
           </Route>
+          <Route path="/error">
+            <ServerError />
+          </Route>
+          <Route component={NotFound} />
         </Switch>
         <Footer />
       </Router>      

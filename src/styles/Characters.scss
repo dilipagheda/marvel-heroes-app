@@ -3,7 +3,10 @@
   display: flex;
   justify-content: center;
   .search-bar {
-    width: 50%;
+    width: 90%;
+    @media (min-width: 600px) {
+      width: 50%;
+    }
   }
 }
 
@@ -13,4 +16,20 @@
   align-items: center;
   padding: 10px;
   height: 90vh;
+}
+
+.characters-container {
+  margin: 20px 5px;
+  @media (min-width: 600px) {
+    margin: 20px 20px;
+  }
+  @media (min-width: 801px) {
+    margin: 20px 50px;
+  }
+  @media (min-width: 1025px) {
+    margin: 20px 100px;
+  }
+  @media (min-width: 1281px) {
+    margin: 20px 120px;
+  }
 }

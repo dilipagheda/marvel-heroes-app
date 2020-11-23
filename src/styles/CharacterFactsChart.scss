@@ -2,6 +2,12 @@
   margin-top: 20px;
   padding: 10px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: 1025px) {
+    flex-direction: row;
+    justify-content: space-around;
+  }
   .facts {
     display: flex;
     flex-direction: column;
@@ -16,6 +22,11 @@
       color: teal;
       font-size: 25px;
       font-weight: bold;
+    }
+  }
+  .bar-chart {
+    // width: 100%;
+    @media (min-width: 1025px) {
     }
   }
 }

@@ -33,29 +33,15 @@ const listCharacters = async (pageNumber,nameStartsWith) => {
  const url = nameStartsWith.length > 0 ? 
                     `https://gateway.marvel.com/v1/public/characters?${params}&limit=${limit}&offset=${offset}&nameStartsWith=${nameStartsWith}`
                     : `https://gateway.marvel.com/v1/public/characters?${params}&limit=${limit}&offset=${offset}`
-  try 
-  {
-    const response = await axios.get(url);
-    return response.data.data
-  }
-  catch (error)
-  {
-    console.error(error);
-  }
+  const response = await axios.get(url);
+  return response.data.data
 };
 
 const getComicDetails = async (uri) => {
   const params = getParams()
   const url = `${uri}?${params}`
-  try 
-  {
-    const response = await axios.get(url);
-    return response.data.data
-  }
-  catch (error)
-  {
-    console.error(error);
-  }
+  const response = await axios.get(url);
+  return response.data.data
 }
 
 const Api = {

@@ -1,16 +1,19 @@
 import React, {useEffect, useState, useContext, useCallback} from 'react'
+import {Redirect} from 'react-router-dom'
 import SearchBar from "material-ui-search-bar"
 import CharactersList from  './CharactersList'
 import Apis from '../Apis'
 import {Context} from '../Store'
 import LoadMoreButton from './LoadMoreButton'
 import CircularProgress from '@material-ui/core/CircularProgress';
+
 import '../styles/Characters.scss'
 
 function Characters() {
   const [fireCall, setFireCall] = useState(false)
   const [searchDirty, setSearchDirty] = useState(false)
   const [state, dispatch] = useContext(Context);
+  const [redirectToError, setRedirectToError] = useState(false)
 
   const reset = useCallback(() => {
     dispatch({type:'SET_CHARACTERS', payload:[]})
@@ -43,12 +46,18 @@ function Characters() {
     if(fireCall)
     {
       const fetchData = async ()=> {
-        const response = await Apis.listCharacters(state.pageNumber,state.searchPhrase)
-        dispatch({type:'SET_CHARACTERS', payload:response.results})
-        dispatch({type:'SET_CURRENT_TOTAL', payload:response.offset + response.count})
-        dispatch({type:'SET_OVERALL_TOTAL', payload: response.total})
-        setFireCall(false)
-        setSearchDirty(false)
+        try{
+          const response = await Apis.listCharacters(state.pageNumber,state.searchPhrase)
+          dispatch({type:'SET_CHARACTERS', payload:response.results})
+          dispatch({type:'SET_CURRENT_TOTAL', payload:response.offset + response.count})
+          dispatch({type:'SET_OVERALL_TOTAL', payload: response.total})
+          setFireCall(false)
+          setSearchDirty(false)
+        }catch(error)
+        {
+          console.log(error)
+          setRedirectToError(true)
+        }
       }
       fetchData()
     }
@@ -70,10 +79,10 @@ function Characters() {
     }else
     {
         return (
-          <>
-          <CharactersList results={state.results}/>
-          <LoadMoreButton onClickLoadMoreHandler={onClickLoadMoreHandler} noMoreRecords={state.currentTotal >= state.overallTotal}/>
-        </>
+          <div className="characters-container">
+            <CharactersList results={state.results}/>
+            <LoadMoreButton onClickLoadMoreHandler={onClickLoadMoreHandler} noMoreRecords={state.currentTotal >= state.overallTotal}/>
+          </div>
         )
       }
     }
@@ -90,7 +99,9 @@ function Characters() {
   }
 
   return (
-    <div className="characters-container">
+    redirectToError ? 
+    <Redirect to="/error" />
+    : <div className="characters-container">
       <div className="search-bar-container">
         <SearchBar
           className="search-bar"

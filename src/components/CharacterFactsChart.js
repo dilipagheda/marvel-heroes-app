@@ -34,7 +34,7 @@ function CharacterFactsChart(props) {
             </ListItem>
           </List>
         </div>
-        <div className="bar-chart" style={{width: '50%'}}>
+        <div className="bar-chart">
           <Bar
             height={500}
             options={{ maintainAspectRatio: false }}        

@@ -4,8 +4,8 @@ import Paper from '@material-ui/core/Paper';
 import '../styles/LoadMoreButton.scss'
 
 function LoadMoreButton(props) {
-
   const {onClickLoadMoreHandler, noMoreRecords} = props
+
   return (
     noMoreRecords ? 
      <Paper className="no-more-records">No more records!</Paper>
