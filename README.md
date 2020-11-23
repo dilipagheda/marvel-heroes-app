@@ -40,7 +40,8 @@ I have optimised the app so that it preservers the state globally and does not m
 - All other state is implemented as local to a perticular component where required.
 
 ## Styling
-I have used saas for writing css. Each component will have its own sass file and only that file will be imported to that component.
+- I have used saas for writing css. Each component will have its own sass file and only that file will be imported to that component.
+- The application is responsive and caters for mobile, tablet and desktop breakpoints.
 
 ## Demo
 ![](https://github.com/dilipagheda/marvel-heroes-app/blob/master/demo/marvel_app_demo.gif)
