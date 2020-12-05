@@ -4,7 +4,7 @@ import CharactersReducer from './reducers/CharactersReducer'
 
 const initialState = {
     results: [],
-    pageNumber: 0,
+    currentPageNumber: 0,
     currentTotal: 0,
     overallTotal: 0,
     searchPhrase:"",

@@ -2,6 +2,19 @@
   margin: 20px 0;
   display: flex;
   justify-content: center;
+  button {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &[disabled] {
+      background-color: #303f9f;
+    }
+    svg {
+      color: white;
+    }
+  }
 }
 .no-more-records {
   text-align: center;

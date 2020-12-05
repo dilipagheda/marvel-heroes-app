@@ -1,25 +1,27 @@
 const CharactersReducer = (state, action) => {
   switch (action.type) {
       case 'SET_CHARACTERS':
+          const {results, offset, count, total, pageNumber} = action.payload
           return {
               ...state,
-              results: action.payload
+              results: pageNumber === 0 ? [...results] : [...state.results, ...results],
+              currentTotal: offset + count,
+              overallTotal: total,
+              currentPageNumber: pageNumber
           };
-      case 'SET_PAGE_NUMBER':
+      case 'RESET_CHARACTERS':
+        return {
+          ...state,
+          results: [],
+          currentTotal: 0,
+          overallTotal:0,
+          currentPageNumber:0
+        }
+      case 'SET_CURRENT_PAGE_NUMBER':
           return {
             ...state,
-            pageNumber: action.payload
+            currentPageNumber: action.payload
           }
-      case 'SET_CURRENT_TOTAL':
-        return {
-          ...state,
-          currentTotal: action.payload
-        }
-      case 'SET_OVERALL_TOTAL':
-        return {
-          ...state,
-          overallTotal: action.payload
-        }
       case 'SET_SEARCH_PHRASE':
         return {
           ...state,
