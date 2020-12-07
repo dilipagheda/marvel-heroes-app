@@ -17,6 +17,14 @@ function Characters() {
     fetchNext()
   }
 
+  const onCancelSearchHandler = () => {
+    cancelSearch()
+  }
+
+  const onChangeHandler = (newValue) => {
+    debouncedFetchData(0,newValue, true)
+  }
+
   const renderCharactersList = () => {
     if(showLoader && state.results.length === 0)
     {
@@ -34,14 +42,6 @@ function Characters() {
           </div>
         )
       }
-    }
-
-  const onCancelSearchHandler = () => {
-    cancelSearch()
-  }
-
-  const onChangeHandler = (newValue) => {
-    debouncedFetchData(0,newValue, true)
   }
 
   return (
