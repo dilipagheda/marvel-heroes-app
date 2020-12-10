@@ -25,7 +25,6 @@ const useFetchData = () => {
       const response = await Apis.listCharacters(pageNumber, searchPhrase)
       dispatch({type:'SET_CHARACTERS', payload:{ ...response, pageNumber}})
       setShowLoader(false)
-      console.log(state)
     }catch(error)
     {
       console.log(error)
@@ -33,17 +32,21 @@ const useFetchData = () => {
     }
   }
 
+  const cachedFetchData = useCallback(fetchData,[dispatch])
+
   const fetchNext = () => {
     fetchData(state.currentPageNumber + 1, state.searchPhrase)
   }
 
-  const debouncedFetchData = useCallback(_.debounce(fetchData, 1000, {leading: false,  trailing: true}), [])
+  // const debouncedFetchData = useCallback(_.debounce(fetchData, 1000, {leading: false,  trailing: true}), [])
+    const debouncedFetchData = _.debounce(cachedFetchData, 1000, {leading: false,  trailing: true})
+
   useEffect(() => {
     if(state.searchPhrase.length === 0 && state.results.length === 0)
     {
-      fetchData(0, state.searchPhrase)
+      cachedFetchData(0, state.searchPhrase)
     }
-  },[state.searchPhrase, state.results.length])  
+  },[state.searchPhrase, state.results.length, cachedFetchData])  
 
   return [fetchNext, debouncedFetchData, cancelSearch, showLoader, redirectToError]
 
